@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 function GameBoard(props) {
     const [number, setNumber] = useState(Math.floor(Math.random() * 100))
     const [steps, setSteps] = useState(0)
