@@ -1,42 +1,31 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import App from "../App";
+import DisplayPlayers from "./display-player";
 
 function AddPlayer() {
-    const [inputValue, setInputValue] = useState("")
-    const [usersArr, setUsersArr]= useState([])
-    // let playerName = document.getElementById("new-player");
-    // if (!localStorage.getItem()) {
-        // let userName = e.target.value;
-        // console.log(userName);
-        
-    // }
-    function hendleInputChange(e) {
-        let userName = e.target.value;
-        console.log(userName);
-        
-        setInputValue(userName);        
-      }
+  const [inputValue, setInputValue] = useState("");
+  const [usersArr, setUsersArr] = useState([]);
+  function hendleInputChange(e) {
+    let userName = e.target.value;
+    console.log(userName);
+    setInputValue(userName);
+  }
 
-      function addNewPlayer(){
-        //usersArr.push(inputValue);
-        setUsersArr([...usersArr,inputValue]);
-        console.log('usersArr: ', usersArr);
-        
-        // props.setInputValue();
+  function addNewPlayer() {
+    // JSON.parse(localStorage.getItem())
+    // for(i=0)
+    setUsersArr([...usersArr, inputValue]);
+    localStorage.setItem("usersArr", JSON.stringify(usersArr));
+    console.log("usersArr: ", usersArr);
+  }
 
-      }
-    
-    return (
-        <>
-        <button onClick={addNewPlayer}>add player</button>
-        <input type="text" id="new-player" onChange={hendleInputChange}></input>
-        <h1>{usersArr}</h1>
-        </>
-    )
+  return (
+    <>
+      <button onClick={addNewPlayer}>add player</button>
+      <input type="text" id="new-player" onChange={hendleInputChange}></input>
+      <DisplayPlayers inputValue={inputValue} usersArr={usersArr} />
+    </>
+  );
 }
-
-// export function addPlayerValue(){
-//     setShowAddPlayer(true);
-//   }
 
 export default AddPlayer;
