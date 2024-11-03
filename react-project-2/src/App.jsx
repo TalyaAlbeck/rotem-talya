@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import AddPlayer from './component/add-player'
+import GameBoard from './component/game-board'
 
 function App() {
   // const [showAddPlayer, setShowAddPlayer] = useState("");
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
        <AddPlayer />
+       <GameBoard userName="nini"/>
     </>
   )
 }
