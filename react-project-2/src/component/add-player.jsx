@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import App from "../App";
+import DisplayPlayers from "./display-player";
 
 function AddPlayer() {
     const [inputValue, setInputValue] = useState("")
@@ -12,21 +13,21 @@ function AddPlayer() {
         setInputValue(userName);        
       }
 
-      function addNewPlayer(){
-        // setUsersArr([...usersArr,inputValue]);
-        usersArr.push(inputValue)
-        console.log('usersArr: ', usersArr);
+  function addNewPlayer() {
+    // JSON.parse(localStorage.getItem())
+    // for(i=0)
+    setUsersArr([...usersArr, inputValue]);
+    localStorage.setItem("usersArr", JSON.stringify(usersArr));
+    console.log("usersArr: ", usersArr);
+  }
 
-      }
-    
-    return (
-        <>
-        <button onClick={addNewPlayer}>add player</button>
-        <input type="text" id="new-player" onChange={hendleInputChange}></input>
-        
-        <h1>{usersArr}</h1>
-        </>
-    )
+  return (
+    <>
+      <button onClick={addNewPlayer}>add player</button>
+      <input type="text" id="new-player" onChange={hendleInputChange}></input>
+      <DisplayPlayers inputValue={inputValue} usersArr={usersArr} />
+    </>
+  );
 }
 
 export default AddPlayer;
