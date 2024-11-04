@@ -11,7 +11,7 @@ function GameActive(props) {
   };
   return (
     <>
-      <button onClick={changeTurn}>start game:</button>
+      <button onClick={changeTurn}>start game</button>
       {props.usersArr.map((item, i) => {
         return (
           <GameBoard
@@ -29,4 +29,5 @@ function GameActive(props) {
     </>
   );
 }
+
 export default GameActive;
