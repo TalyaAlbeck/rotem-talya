@@ -8,7 +8,6 @@ import GameBoard from "./component/game-board";
 import Score from "./component/score";
 
 function App() {
-  // const [showAddPlayer, setShowAddPlayer] = useState("");
   const [usersArr, setUsersArr] = useState([]);
 
   return (
