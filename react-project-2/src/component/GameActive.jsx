@@ -3,24 +3,26 @@ import GameBoard from "./game-board";
 
 function GameActive(props) {
   const [turn, setTurn] = useState(0);
+
   const changeTurn = () => {
     setTurn(turn + 1);
     if (turn === props.usersArr.length) {
       setTurn(1);
     }
   };
+
   return (
     <>
       <button onClick={changeTurn}>start game:</button>
       <div id="game">
-        {props.usersArr.map((item, i) => {
+        {props.usersArr.map((item, index) => {
           return (
             <GameBoard
               usersArr={props.usersArr}
               setUsersArr={props.setUsersArr}
               user={item}
-              key={i}
-              id={i + 1}
+              key={item.name}
+              id={index + 1}
               changeTurn={changeTurn}
               turn={turn}
               setTurn={setTurn}

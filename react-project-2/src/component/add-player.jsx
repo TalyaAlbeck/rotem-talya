@@ -12,7 +12,7 @@ function AddPlayer(props) {
   }
 
   function addNewPlayer() {
-    let newUser = { name: inputValue, score: 0, isPlaying: true };
+    let newUser = { name: inputValue, score: [], isPlaying: true };
     let usersArray = JSON.parse(localStorage.getItem("usersArr"));
     if (usersArray === null) {
       localStorage.setItem("usersArr", JSON.stringify([newUser]));
