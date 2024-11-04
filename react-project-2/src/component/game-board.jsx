@@ -9,6 +9,7 @@ function GameBoard(props) {
   const endPlaying = (player) => {
     let usersArray = props.usersArr.filter((item) => item.name !== player);
     props.setUsersArr(usersArray);
+
   };
 
   function onClickHandler(num) {
@@ -20,6 +21,7 @@ function GameBoard(props) {
     setSteps(steps + 1);
   }
 
+
   return (
     <div className="player">
       <h3>name: {props.user.name}</h3>
@@ -29,7 +31,9 @@ function GameBoard(props) {
         <>
           <button
             onClick={() => {
-              endPlaying(props.user.name);
+              endPlaying(props.user.name, steps);
+              props.id > 0 ? props.turn = props.id - 1 : console.log();
+              
             }}
           >
             finish
