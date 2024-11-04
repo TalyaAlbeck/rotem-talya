@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <h1>GET TO 100!</h1>
+      <h1>GET TO 100!!!!</h1>
       <AddPlayer usersArr={usersArr} setUsersArr={setUsersArr} />
       <GameActive
         usersArr={usersArr}
@@ -22,8 +22,9 @@ function App() {
         setScores={setScores}
       />
       {/* <Score numGames={5} averageScore={7} steps={6} /> */}
-
-      <Scores scores={scores} setScores={setScores} />
+      <div id="scoresErea">
+        <Scores scores={scores} setScores={setScores} />
+      </div>
     </>
   );
 }

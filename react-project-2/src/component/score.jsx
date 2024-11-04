@@ -8,11 +8,9 @@ function Scores(props) {
   }
   return usersArray.map((item) => {
     return (
-      <>
-        <li>
-          {item.name}: {item.score.map((item, index) => `${item}, `)}
-        </li>
-      </>
+      <li className="scores">
+        {item.name}: {item.score.map((item, index) => `${item}, `)}
+      </li>
     );
   });
 }
