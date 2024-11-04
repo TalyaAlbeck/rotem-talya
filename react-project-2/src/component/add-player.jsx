@@ -42,8 +42,8 @@ function AddPlayer(props) {
 
   return (
     <>
-      <button onClick={addNewPlayer}>add player</button>
       <input type="text" id="new-player" onChange={hendleInputChange}></input>
+      <button onClick={addNewPlayer}>add player</button>
     </>
   );
 }

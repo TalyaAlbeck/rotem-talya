@@ -13,7 +13,9 @@ function GameActive(props) {
 
   return (
     <>
-      <button onClick={changeTurn}>start game:</button>
+      <button id="start" onClick={changeTurn}>
+        start game:
+      </button>
       <div id="game">
         {props.usersArr.map((item, index) => {
           return (

@@ -24,8 +24,9 @@ function App() {
         setScores={setScores}
       />
       {/* <Score numGames={5} averageScore={7} steps={6} /> */}
-
-      <Score scores={scores} setScores={setScores} />
+      <div id="scoresErea">
+        <Score scores={scores} setScores={setScores} />
+      </div>
     </>
   );
 }

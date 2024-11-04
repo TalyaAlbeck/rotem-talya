@@ -11,7 +11,6 @@ function ShowScoresAverage() {
         }
         let av = sum/usersArray[user].score.length  
         sums.push(av)
-        // setSums(...sums, av)
         usersArray[user].av = av;
     }
     localStorage.setItem("usersArr", JSON.stringify(usersArray));
@@ -29,8 +28,7 @@ function ShowScoresAverage() {
 
     return (
         <>
-            <h2>the best player:</h2>
-            <h2>{bestPlayer}: {best}</h2>
+            <h2>the best player is {bestPlayer} with {best} steps!</h2>
         </>
     )
   }
