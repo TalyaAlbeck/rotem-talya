@@ -6,7 +6,6 @@ function GameBoard(props) {
   const [number, setNumber] = useState(Math.floor(Math.random() * 100));
   const [steps, setSteps] = useState(0);
   const [finished, setFinished] = useState(false);
-  //   const [scores, setScores] = useState([]);
 
   const endPlaying = (player) => {
     let usersArray = props.usersArr.filter((item) => item.name !== player);
@@ -20,6 +19,7 @@ function GameBoard(props) {
       if (users[i].name === player) {
         // console.log(steps);
         users[i].score.push(steps);
+        props.setScores([...users[i].score, steps]);
       }
       localStorage.setItem("usersArr", JSON.stringify(users));
     }

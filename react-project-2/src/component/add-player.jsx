@@ -10,9 +10,9 @@ function AddPlayer(props) {
 
     setInputValue(userName);
   }
-  //hello
+
   function addNewPlayer() {
-    let newUser = { name: inputValue, score: [] };
+    let newUser = { name: inputValue, score: [], av: null };
     let usersArray = JSON.parse(localStorage.getItem("usersArr"));
     if (usersArray === null) {
       localStorage.setItem("usersArr", JSON.stringify([newUser]));
@@ -26,10 +26,15 @@ function AddPlayer(props) {
         }
       }
       if (!flag) {
+        console.log("[...props.usersArr, newUser]: ", [
+          ...props.usersArr,
+          newUser,
+        ]);
         props.setUsersArr([...props.usersArr, newUser]);
+
         localStorage.setItem(
           "usersArr",
-          JSON.stringify([...props.usersArr, newUser])
+          JSON.stringify([...usersArray, newUser])
         );
       }
     }
