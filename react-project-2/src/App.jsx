@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <h1>GET TO 100!</h1>
+      <h1>GET TO 100!!!</h1>
       <AddPlayer usersArr={usersArr} setUsersArr={setUsersArr} />
       <GameActive usersArr={usersArr} setUsersArr={setUsersArr} />
       <Score />
