@@ -16,10 +16,8 @@ function GameBoard(props) {
     }
     localStorage.setItem("usersArr", JSON.stringify(usersArray));
     props.setUsersArr(usersArray);
-    // const updatedPlayers = props.usersArr.filter((item, index) => {
-    //   item.name !== player;
-    // });
-    // props.setUsersArr(updatedPlayers);
+    console.log(props.usersArr);
+    
   };
 
   function onClickHandler(num) {
