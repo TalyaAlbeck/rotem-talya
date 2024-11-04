@@ -21,7 +21,7 @@ function GameActive(props) {
               usersArr={props.usersArr}
               setUsersArr={props.setUsersArr}
               user={item}
-              key={i}
+              key={item.name}
               id={i + 1}
               changeTurn={changeTurn}
               turn={turn}

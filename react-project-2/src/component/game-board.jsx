@@ -9,6 +9,14 @@ function GameBoard(props) {
   const endPlaying = (player) => {
     let usersArray = props.usersArr.filter((item) => item.name !== player);
     props.setUsersArr(usersArray);
+
+    // let users = JSON.parse(localStorage.getItem("usersArr"));
+    // for (i = 0; i < users.length; i++) {
+    //   if (users[i].name === player) {
+    //     users[i].score.push(steps);
+    //   }
+    // }
+    // localStorage.setItem("usersArr", JSON.stringify(users));
   };
 
   function onClickHandler(num) {
@@ -29,7 +37,7 @@ function GameBoard(props) {
         <>
           <button
             onClick={() => {
-              endPlaying(props.user.name);
+              endPlaying(props.user.name, steps);
             }}
           >
             finish
