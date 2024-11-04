@@ -18,6 +18,8 @@ function GameActive(props) {
         {props.usersArr.map((item, i) => {
           return (
             <GameBoard
+              scores={props.scores}
+              setScores={props.setScores}
               usersArr={props.usersArr}
               setUsersArr={props.setUsersArr}
               user={item}

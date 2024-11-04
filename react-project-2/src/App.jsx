@@ -9,15 +9,21 @@ import Scores from "./component/score";
 
 function App() {
   const [usersArr, setUsersArr] = useState([]);
+  const [scores, setScores] = useState([]);
 
   return (
     <>
       <h1>GET TO 100!</h1>
       <AddPlayer usersArr={usersArr} setUsersArr={setUsersArr} />
-      <GameActive usersArr={usersArr} setUsersArr={setUsersArr} />
+      <GameActive
+        usersArr={usersArr}
+        setUsersArr={setUsersArr}
+        scores={scores}
+        setScores={setScores}
+      />
       {/* <Score numGames={5} averageScore={7} steps={6} /> */}
 
-      <Scores />
+      <Scores scores={scores} setScores={setScores} />
     </>
   );
 }
