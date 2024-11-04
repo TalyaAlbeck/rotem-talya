@@ -1,24 +1,29 @@
 import React, { useState } from "react";
 import GameActive from "./GameActive";
+import Score from "./score";
 
 function GameBoard(props) {
   const [number, setNumber] = useState(Math.floor(Math.random() * 100));
   const [steps, setSteps] = useState(0);
   const [finished, setFinished] = useState(false);
+  //   const [scores, setScores] = useState([]);
 
-  const endPlaying = (player, id) => {
+  const endPlaying = (player) => {
     let usersArray = props.usersArr.filter((item) => item.name !== player);
     props.setUsersArr(usersArray);
-    props.setTurn(props.turn - 1);
-    // let users = JSON.parse(localStorage.getItem("usersArr"));
-    // for (let i = 0; i < users.length; i++) {
-    //   if (users[i].name === player) {
-    //     console.log(steps);
-    //     users[i].score.push(steps);
-    //   }
+    props.turn === props.usersArr.length && props.setTurn(props.turn - 1);
   };
 
-  //   localStorage.setItem("usersArr", JSON.stringify(users));
+  const addScore = (player) => {
+    let users = JSON.parse(localStorage.getItem("usersArr"));
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].name === player) {
+        console.log(steps);
+        users[i].score.push(steps);
+      }
+      localStorage.setItem("usersArr", JSON.stringify(users));
+    }
+  };
 
   function onClickHandler(num) {
     if (num === 100 && !finished) {
@@ -31,7 +36,6 @@ function GameBoard(props) {
   return (
     <div className="player">
       <h3>name: {props.user.name}</h3>
-      <h3>prev scores: {props.user.score}</h3>
       <h3>number: {number}</h3>
       <h3>steps: {steps}</h3>
       {finished ? (
@@ -39,6 +43,7 @@ function GameBoard(props) {
           <button
             onClick={() => {
               endPlaying(props.user.name, props.id, steps);
+              addScore(props.user.name);
             }}
           >
             finish
@@ -48,6 +53,7 @@ function GameBoard(props) {
               setNumber(Math.floor(Math.random() * 100));
               setFinished(false);
               setSteps(0);
+              addScore(props.user.name);
             }}
           >
             continue
