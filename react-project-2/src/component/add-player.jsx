@@ -12,7 +12,7 @@ function AddPlayer(props) {
   }
 
   function addNewPlayer() {
-    let newUser = { name: inputValue, score: 0 };
+    let newUser = { name: inputValue, score: 0, isPlaying: true };
     let usersArray = JSON.parse(localStorage.getItem("usersArr"));
     if (usersArray === null) {
       localStorage.setItem("usersArr", JSON.stringify([newUser]));
@@ -20,15 +20,17 @@ function AddPlayer(props) {
     } else {
       let flag = false;
       for (let i = 0; i < usersArray.length; i++) {
-        if (usersArray[i].name === newUser.name) {
+        if (usersArray[i].name === newUser.name && usersArray[i].isPlaying) {
           alert("This user exists");
           flag = true;
-          break;
         }
       }
       if (!flag) {
         props.setUsersArr([...props.usersArr, newUser]);
-        localStorage.setItem("usersArr", JSON.stringify(props.usersArr));
+        localStorage.setItem(
+          "usersArr",
+          JSON.stringify([...props.usersArr, newUser])
+        );
       }
     }
   }

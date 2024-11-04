@@ -12,20 +12,22 @@ function GameActive(props) {
   return (
     <>
       <button onClick={changeTurn}>start game:</button>
-      {props.usersArr.map((item, i) => {
-        return (
-          <GameBoard
-            usersArr={props.usersArr}
-            setUsersArr={props.setUsersArr}
-            user={item}
-            key={i}
-            id={i + 1}
-            changeTurn={changeTurn}
-            turn={turn}
-            setTurn={setTurn}
-          />
-        );
-      })}
+      <div id="game">
+        {props.usersArr.map((item, i) => {
+          return (
+            <GameBoard
+              usersArr={props.usersArr}
+              setUsersArr={props.setUsersArr}
+              user={item}
+              key={i}
+              id={i + 1}
+              changeTurn={changeTurn}
+              turn={turn}
+              setTurn={setTurn}
+            />
+          );
+        })}
+      </div>
     </>
   );
 }
