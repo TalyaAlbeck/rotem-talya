@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import GameActive from "./GameActive";
 
 function GameBoard(props) {
-    const [number, setNumber] = useState(Math.floor(Math.random() * 100));
-    const [steps, setSteps] = useState(0);
-    const [finished, setFinished] = useState(false)
+  const [number, setNumber] = useState(Math.floor(Math.random() * 100));
+  const [steps, setSteps] = useState(0);
+  const [finished, setFinished] = useState(false);
 
     function onClickHandler(num) {
         console.log(props.usersArr);
@@ -43,35 +43,42 @@ function GameBoard(props) {
         </>
         ) : (
         <>
-      <button disabled={props.turn === props.id ? false : true} onClick={() => {
-          setNumber(number + 1)
-          onClickHandler(number + 1)
-        }}
-      >
-        +1
-      </button>
-      <button disabled={props.turn === props.id ? false : true} onClick={() => {
-          setNumber(number - 1)
-          onClickHandler(number - 1)
-        }}
-      >
-        -1
-      </button>
-      <button disabled={props.turn === props.id ? false : true} onClick={() => {
-          setNumber(number * 2)
-          onClickHandler(number * 2)
-        }}
-      >
-        x2
-      </button>
-      <button disabled={props.turn === props.id ? false : true} onClick={() => {
-          setNumber(Math.floor(number / 2))
-          onClickHandler(Math.floor(number / 2))
-        }}
-      >
-        \2
-      </button>
-        
+          <button
+            disabled={props.turn === props.id ? false : true}
+            onClick={() => {
+              setNumber(number + 1);
+              onClickHandler(number + 1);
+            }}
+          >
+            +1
+          </button>
+          <button
+            disabled={props.turn === props.id ? false : true}
+            onClick={() => {
+              setNumber(number - 1);
+              onClickHandler(number - 1);
+            }}
+          >
+            -1
+          </button>
+          <button
+            disabled={props.turn === props.id ? false : true}
+            onClick={() => {
+              setNumber(number * 2);
+              onClickHandler(number * 2);
+            }}
+          >
+            x2
+          </button>
+          <button
+            disabled={props.turn === props.id ? false : true}
+            onClick={() => {
+              setNumber(Math.floor(number / 2));
+              onClickHandler(Math.floor(number / 2));
+            }}
+          >
+            \2
+          </button>
         </>
       )}
     </div>
