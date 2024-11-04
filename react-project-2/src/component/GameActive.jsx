@@ -33,4 +33,5 @@ function GameActive(props) {
     </>
   );
 }
+
 export default GameActive;
