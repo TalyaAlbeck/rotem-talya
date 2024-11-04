@@ -5,6 +5,18 @@
   text-align: center;
 }
 
+body {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  /* padding: 2rem; */
+  text-align: center;
+}
+
 .player {
   /* border: 2px solid yellow; */
+}
+#game {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
