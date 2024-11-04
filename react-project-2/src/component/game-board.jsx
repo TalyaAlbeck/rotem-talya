@@ -6,38 +6,39 @@ function GameBoard(props) {
   const [steps, setSteps] = useState(0);
   const [finished, setFinished] = useState(false);
 
-  const endPlaying = (player) => {
+  const endPlaying = (player, id) => {
     let usersArray = props.usersArr.filter((item) => item.name !== player);
     props.setUsersArr(usersArray);
-
+    props.setTurn(props.turn - 1);
     // let users = JSON.parse(localStorage.getItem("usersArr"));
-    // for (i = 0; i < users.length; i++) {
+    // for (let i = 0; i < users.length; i++) {
     //   if (users[i].name === player) {
+    //     console.log(steps);
     //     users[i].score.push(steps);
     //   }
-    // }
-    // localStorage.setItem("usersArr", JSON.stringify(users));
   };
+
+  //   localStorage.setItem("usersArr", JSON.stringify(users));
 
   function onClickHandler(num) {
     if (num === 100 && !finished) {
       setFinished(true);
     }
     props.changeTurn();
-
     setSteps(steps + 1);
   }
 
   return (
     <div className="player">
       <h3>name: {props.user.name}</h3>
+      <h3>prev scores: {props.user.score}</h3>
       <h3>number: {number}</h3>
       <h3>steps: {steps}</h3>
       {finished ? (
         <>
           <button
             onClick={() => {
-              endPlaying(props.user.name, steps);
+              endPlaying(props.user.name, props.id, steps);
             }}
           >
             finish
